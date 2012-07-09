@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+  <script type="text/javascript" src="./loading_on_submit.js"></script>
+</head>
+<body>
+
+  <h2>Show an loading overlay when submitting</h2>
+
+  <form id="sample-1" action="./target.php" style="width: 400px; border: 1px solid green;">
+    <label>field 1</label>
+    <input type="text" />
+    <br />
+    <label>field 2</label>
+    <input type="text" />
+    <br />
+    <label>field 3</label>
+    <input type="text" />
+    <br />
+    <input type="submit" />
+  </form>
+
+  <script type="text/javascript">
+    jQuery(document).ready(function() {
+	$('#sample-1').loading_on_submit();
+    });
+  </script>
+
+
+  <h2>Customize its color and opacity</h2>
+
+  <form id="sample-2" action="./target.php" style="width: 400px; border: 1px solid green;">
+    <label>field 1</label>
+    <input type="text" />
+    <br />
+    <label>field 2</label>
+    <input type="text" />
+    <br />
+    <label>field 3</label>
+    <input type="text" />
+    <br />
+    <input type="submit" />
+  </form>
+
+  <script type="text/javascript">
+    jQuery(document).ready(function() {
+	$('#sample-2').loading_on_submit({
+		'background-color': 'red',
+		'opacity': 0.4
+	});
+    });
+  </script>
+
+
+  <h2>Add a loading image inside it</h2>
+
+  <form id="sample-3" action="./target.php" style="width: 400px; border: 1px solid green;">
+    <label>field 1</label>
+    <input type="text" />
+    <br />
+    <label>field 2</label>
+    <input type="text" />
+    <br />
+    <label>field 3</label>
+    <input type="text" />
+    <br />
+    <input type="submit" />
+  </form>
+
+  <script type="text/javascript">
+    jQuery(document).ready(function() {
+	$('#sample-3').loading_on_submit({
+		'img_src': './loader.gif',
+		'img_height': 16
+	});
+    });
+  </script>
+
+
+  <h2>You can also start and stop it programmatically</h2>
+
+  <form id="sample-4" style="width: 400px; border: 1px solid green;">
+    <label>field 1</label>
+    <input type="text" />
+    <br />
+    <label>field 2</label>
+    <input type="text" />
+    <br />
+    <label>field 3</label>
+    <input type="text" />
+  </form>
+
+  <input type="button" id="btn-show" value="Show overlay" />
+  <input type="button" id="btn-hide" value="Hide overlay" disabled="disabled" />
+
+  <script type="text/javascript">
+    jQuery(document).ready(function() {
+	$form = $('#sample-4');
+	$btn_show = $('#btn-show');
+	$btn_hide = $('#btn-hide');
+
+	$form.loading_on_submit({
+		'opacity': 0.5,
+		'background-color': 'blue'
+	});
+
+	$btn_show.click(function() {
+		$form.loading_on_submit('show');
+		$btn_show.attr("disabled", "disabled");
+		$btn_hide.removeAttr("disabled");
+	});
+
+	$btn_hide.click(function() {
+		$form.loading_on_submit('hide');
+		$btn_hide.attr("disabled", "disabled");
+		$btn_show.removeAttr("disabled");
+	});
+    });
+  </script>
+
+</body>
+</html>
