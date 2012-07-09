@@ -1,0 +1,48 @@
+.tags_host {
+    zoom: 1;
+    overflow: hidden;
+    margin: 0;
+    padding: 6px 0 0 4px;
+    border: 1px solid #DDD;
+    list-style: none;
+    color: #636363;
+    font: 11px "Lucida Grande", Verdana;
+    cursor: text;
+}
+
+.tags_host .target_input {
+    outline: none;
+    width: 120px;
+    border: 0;
+    padding: 2px 0;
+    height: 14px;
+    font: 11px "Lucida Grande", Verdana;
+    float: left;
+    margin: 0 4px 6px 0;
+}
+
+.tags_host li {
+    background-color: #000000;
+    border-radius: 10px 10px 10px 10px;
+    color: #FFFFFF;
+    cursor: pointer;
+    float: left;
+    margin: 0 4px 6px 0;
+    padding: 2px 17px 2px 8px;
+    position: relative;
+}
+
+.tags_host li a {
+    position: absolute;
+    right: 5px;
+    top: 2px;
+    display: block;
+    font-size: 12px;
+    color: #919BB0;
+    text-decoration: none;
+    font-weight: bold;
+    line-height: 14px;
+}
+.tags_host li a:hover {
+    color: #FF0000;
+}

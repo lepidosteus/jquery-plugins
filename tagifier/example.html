@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="./tagifier.css" media="all" type="text/css" />
+
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+  <script type="text/javascript" src="./jquery.json-2.3.min.js"></script>
+  <script type="text/javascript" src="./tagifier.js"></script>
+</head>
+<body>
+
+  <h2>Simplest example</h2>
+  <div style="width: 500px">
+	<label for="tag-1">Tags:</label>
+	<input type="text" id="tag-1" />
+  </div>
+
+  <script type="text/javascript">
+    jQuery(document).ready(function() {
+	jQuery('#tag-1').tagifier();
+    });
+  </script>
+
+  <ul>
+    <li>The tag area grows as needed if you add more tags than it can show</li>
+    <li>If you try to enter the same item twice, it will fail and the previous one will blink to show where it is</li>
+    <li>If you click on an item, you will be able to edit it</li>
+    <li>You can remove a tag by pressing the X in it, or remove the last one by pressing backspace with an empty input</li>
+    <li>Data will be returned as a json encoded array of all tags</li>
+  </ul>
+
+  <h2>With some default tags (eg: for modification)</h2>
+  <div style="width: 500px">
+	<label for="tag-2">Tags:</label>
+	<input type="text" id="tag-2" value="[&quot;javascript&quot;,&quot;jquery&quot;,&quot;fun&quot;]" />
+  </div>
+
+  <script type="text/javascript">
+    jQuery(document).ready(function() {
+	jQuery('#tag-2').tagifier();
+    });
+  </script>
+
+  <p>Simply provide a json-encoded string in the input's value attribute</p>
+
+  <h2>You can allow duplicates</h2>
+  <div style="width: 500px">
+	<label for="tag-3">Tags:</label>
+	<input type="text" id="tag-3" value="[&quot;javascript&quot;,&quot;javascript&quot;,&quot;jquery&quot;,&quot;fun&quot;]" />
+  </div>
+
+  <script type="text/javascript">
+    jQuery(document).ready(function() {
+	jQuery('#tag-3').tagifier({
+		allow_duplicates: true
+	});
+    });
+  </script>
+
+  <h2>Or set a max size per tag</h2>
+  <div style="width: 500px">
+	<label for="tag-4">Tags:</label>
+	<input type="text" id="tag-4" value="[&quot;javascript&quot;,&quot;jquery&quot;,&quot;fun&quot;]" />
+  </div>
+
+  <script type="text/javascript">
+    jQuery(document).ready(function() {
+	jQuery('#tag-4').tagifier({
+		max_char_per_tag: 4
+	});
+    });
+  </script>
+
+  <h2>Change the displayed strings (for example, if you need translations)</h2>
+  <div style="width: 500px">
+	<label for="tag-5">Tags:</label>
+	<input type="text" id="tag-5" value="[&quot;javascript&quot;,&quot;jquery&quot;,&quot;fun&quot;]" />
+  </div>
+
+  <script type="text/javascript">
+    jQuery(document).ready(function() {
+	jQuery('#tag-5').tagifier({
+		str_prompt: 'Entrez vos tags ici',
+		str_delete: 'Effacer ce tag',
+		str_edit: 'Editer ce tag'
+	});
+    });
+  </script>
+
+</body>
+</html>

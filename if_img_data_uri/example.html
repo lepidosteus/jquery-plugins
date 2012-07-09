@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+  <script type="text/javascript" src="./if_img_data_uri.js"></script>
+</head>
+<body>
+
+  <script type="text/javascript">
+    jQuery(document).ready(function() {
+	jQuery.if_img_data_uri({
+		success: function() {
+			alert('Your browser supports data-uris for images');
+		},
+		failure: function() {
+			alert('Your browser does not support data-uris for images :(');
+		}
+	});
+    });
+  </script>
+
+</body>
+</html>
