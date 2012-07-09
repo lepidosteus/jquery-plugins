@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+  <script type="text/javascript" src="./size_limit.js"></script>
+</head>
+<body>
+
+  <h2>Simple size limiter</h2>
+  <form>
+    <input type="text" id="somefield-1" value="No more than 28 letters here" size="28" />
+  </form>
+  <script type="text/javascript">
+    jQuery(document).ready(function() {
+	jQuery('#somefield-1').size_limit({
+		size: 28
+	});
+    });
+  </script>
+
+
+  <h2>Update a counter in real time</h2>
+  <form>
+    <label for="somefield-2">You have <span id="somefield-2_size_limit">4535345</span> chars left</label>
+    <br />
+    <input type="text" id="somefield-2" value="No more than 28 letters here" size="28" />
+    <p>You should pre-fill the label with the correct space left for better user integration, but in case you don't it is done at startup (look at the source)</p>
+  </form>
+  <script type="text/javascript">
+    jQuery(document).ready(function() {
+	jQuery('#somefield-2').size_limit({
+		size: 28,
+		label: '#somefield-2_size_limit'
+	});
+    });
+  </script>
+
+
+  <h2>Provide the counter object yourself</h2>
+  <form>
+    <label for="somefield-3">You have <span id="somefield-3_size_limit">3</span> chars left</label>
+    <br />
+    <input type="text" id="somefield-3" value="Still some space left ..." size="28" />
+  </form>
+  <script type="text/javascript">
+    jQuery(document).ready(function() {
+	jQuery('#somefield-3').size_limit({
+		size: 28,
+		label: jQuery('#somefield-3_size_limit')
+	});
+    });
+  </script>
+
+
+  <h2>Also works with textareas</h2>
+  <form>
+    <label for="somefield-4">You have <span id="somefield-4_size_limit">3</span> chars left</label>
+    <br />
+    <textarea id="somefield-4" cols="30" rows="2">Still some space left ...</textarea>
+  </form>
+  <script type="text/javascript">
+    jQuery(document).ready(function() {
+	jQuery('#somefield-4').size_limit({
+		size: 28,
+		label: jQuery('#somefield-4_size_limit')
+	});
+    });
+  </script>
+</body>
+</html>
